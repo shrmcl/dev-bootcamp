@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Service</title>
+</head>
+<body>
+
+    <h1>Hotel Room Service</h1>
+    <h2>Welcome to our hotel! We hope you enjoy your stay.</h2>
+    <p>We value you as a guest! Use this online form to have a hot, delicious breakfast delivered to your door. Please fill out this form before midnight so we make proper accomodations. All meals are served before 10am. Tipping is encouraged.</p>
+
+    <form>
+        <fieldset>
+            <legend>Hotel Guest Contact Info</legend>
+            <p>First name: <input type="text" id="fname"></p>
+            <p>Last name: <input type="text" id="lname"></p>
+            <p>Room number: <input type="text" id="room"></p>
+        </fieldset><br/>
+
+        
+        <label for="times">What time would you like to be served?</label>
+        <select name="times" id="times">
+            <option value="6am">6am</option>
+            <option value="7am">7am</option>
+            <option value="8am">8am</option>
+            <option value="9am">9am</option>
+            <option value="10am">10am</option>
+        </select><br/><br/>
+        
+        <label for="menu">Please choose your entree:<br/><br/>
+        <select name="menu" id="menu" multiple>
+            <option value="waffles">Waffles and chicken</option>
+            <option value="pancaktes">Pancakes and syrup</option>
+            <option value="hash">Hashbrowns</option>
+            <option value="bacon">Bacon & eggs</option>
+            <option value="toast">Boring ol' toast</option>
+        </select>
+
+        <p>Would you like extra butter?</p>
+        <input type="radio" id="y" name="butter" value="yes">
+        <label for="y">yes</label>
+
+        <input type="radio" id="n" name="butter" value="no">
+        <label for="n">no</label>
+
+        <input type="radio" id="maybe" name="butter" value="surprise">
+        <label for="maybe">Surprise Me</label>
+
+        <br/><br/>
+
+        <button>Submit</button>
+
+    </form>
+
+
+</body>
+</html>
