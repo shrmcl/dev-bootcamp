@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#clockbox {
+ width: 300px;
+ height: 300px;
+ background-color: cornflowerblue;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#clock {
+    width: 240px;
+    height: 240px;
+    border-radius: 255px;
+    border: 15px solid white;
+}
+
+
+#seconds {
+    width: 100px;
+    height: 10px;
+    background-color: black;
+    transform: translate(120px, 120px) rotate(-90deg);
+    transform-origin:top left;
+}
