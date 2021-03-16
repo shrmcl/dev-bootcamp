@@ -23,14 +23,41 @@ body {
     width: 240px;
     height: 240px;
     border-radius: 255px;
-    border: 15px solid white;
+    border: 14px solid white;
 }
 
 
 #seconds {
     width: 100px;
+    height: 6px;
+    background-color: rgba(23, 29, 25, 0.6);
+    transform: translate(120px, 117px) rotate(-90deg);
+    transform-origin: 0 3px;
+    position: absolute;
+    z-index: 10;
+
+    /* the transition below makes second hand move backwards when it hits 60sec on the clock */
+    transition: transform 1s;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    
+}
+
+#minutes {
+    width: 100px;
     height: 10px;
-    background-color: black;
-    transform: translate(120px, 120px) rotate(-90deg);
-    transform-origin:top left;
+    background-color: rgba(255, 187, 1, .8);
+    transform: translate(120px, 115px) rotate(-90deg);
+    transform-origin: 0 5px;
+    position: absolute;
+    z-index: 9;
+}
+
+#hours {
+    width: 80px;
+    height: 10px;
+    background-color: rgb(255, 0, 200);
+    transform: translate(120px, 115px) rotate(-90deg);
+    transform-origin: left 5px;
+    position: absolute;
+    z-index: 8;
 }
