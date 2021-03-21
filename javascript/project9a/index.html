@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+       
+        <form id="recipe">
+            <input type="text" id="title" placeholder="Recipe Title*" required>
+            <input type="text" id="servings" placeholder="Serving Size*" required>
+            <input type="text" class="ingredient" placeholder="First Ingredient*" required>
+            <input type="text" class="additional" placeholder="Add Ingredient">
+            <button id="save">save</button>
+        </form>
+
+        <div class="results">
+            <p class="saved-title"></p>
+            <p class="saved-servings"></p>
+            <p class="saved-ingredients"></p>
+        </div>
+
+        
+        
+        <script src="script.js"></script>
+    </body>
+</html>
