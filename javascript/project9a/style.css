@@ -1,15 +1,40 @@
 * {
     padding: 0;
     margin: 0;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
 }
+
 
 input[type="text"] {
     margin-bottom: 10px;
 }
 
+#wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
 #recipe {
     background-color: wheat;
     padding: 20px;
+    width: 50%;
+}
+
+#result {
+    background-color:ivory;
+    border: 1px solid green;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#result p {
+    text-align: center;
 }
 
 #title {
@@ -24,14 +49,9 @@ input[type="text"] {
     display: block;
 }
 
-.additional {
-    display: none;
-}
-
 #save {
     margin-top: 100px;
 }
 
-.results {
-    background-color: turquoise;
-}
+
+
