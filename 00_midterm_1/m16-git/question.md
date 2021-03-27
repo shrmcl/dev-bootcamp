@@ -8,4 +8,4 @@
 
 
 ### Please write your answer here:
-
+2. `git log`
