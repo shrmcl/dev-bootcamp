@@ -25,3 +25,4 @@ Hint: You need to view these images. To view them use one of the following techn
 Red. It would only become blue if it was an odd-numbered item of the selected type.
 
 ### Answer B:
+Blue. Both "ul li" and "#must-buy" apply to this element; however, the one listed last takes over because of the order in the CSS file. Also, the id takes more authority than the referencing the element by tag names.

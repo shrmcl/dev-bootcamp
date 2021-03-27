@@ -7,3 +7,5 @@ In JavaScript, how do you append a value to an array? List 4 ways you can do thi
 How do you remove a specified member from the array? Provide small sample. (35% credit)
 
 ### Please provide answers in an attached script.js file, which can be executed using nodejs. Descriptive answers may be provided within comments.
+
+
