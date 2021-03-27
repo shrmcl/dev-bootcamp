@@ -12,4 +12,4 @@ on github.com, or click on the "preview" button on the top right side of your VS
 5. None of the above
 
 ### Please write your answer here:
-
+3. 14

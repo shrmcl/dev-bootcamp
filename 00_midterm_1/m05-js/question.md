@@ -11,3 +11,4 @@
 5. None of the above
 
 ### Please write your answer here:
+1. The `setTimeout` function is used to run callback `cb` after at least `ms` milliseconds.
