@@ -26,5 +26,6 @@ btn.onclick = function(){
 // allows the developer to change the calculation without
 // requiring to change other code.
 const myCalc = function(a, b) {
-   console.log(a*b);
+   console.log(a.value * b.value);
+   return a.value * b.value;
 } 
