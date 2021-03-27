@@ -6,3 +6,4 @@
 4. `<div color="yellow">Some text</div>`
 
 ### Please write your answer here:
+3. `<body style="background-color: #ffff00">`

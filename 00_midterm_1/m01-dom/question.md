@@ -12,3 +12,4 @@ Hint: if you are not sure, please setup a simple test page with 2 div's as descr
 what you get.
 
 ### Please write your answer here:
+1. the first div with a class of "intro"
