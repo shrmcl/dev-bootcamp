@@ -22,5 +22,6 @@ Hint: You need to view these images. To view them use one of the following techn
 - view this question within github.com in the reviews repository shared with you.
 
 ### Answer A:
+Red. It would only become blue if it was an odd-numbered item of the selected type.
 
 ### Answer B:
