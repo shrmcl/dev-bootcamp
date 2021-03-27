@@ -11,3 +11,11 @@ Please describe what would be the output of the following code snippet on mobile
     </div>
 ```
 ### Answer:
+The sizes are:
+    Extra small (less than 576px wide)
+    Small (between 576-768px)
+    Medium (between 768-992px)
+    Large (between 992-1200px)
+    Extra large (greater than 1200px wide)
+
+The above example would display a row of 4 columns. Each column would be full screen width on an Extra small or small screen. On medium screens and greater, each column takes of 25% screen width (3 of 12 columns).
