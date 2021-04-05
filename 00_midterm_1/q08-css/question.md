@@ -24,5 +24,16 @@ Hint: You need to view these images. To view them use one of the following techn
 ### Answer A:
 Red. It would only become blue if it was an odd-numbered item of the selected type.
 
+### Feedback:
+How do you explain this .. 
+https://codepen.io/piyushmehta/pen/ExZXXEV
+If you cannot, please let's discuss.
+
+
 ### Answer B:
 Blue. Both "ul li" and "#must-buy" apply to this element; however, the one listed last takes over because of the order in the CSS file. Also, the id takes more authority than the referencing the element by tag names.
+
+### Feedback:
+Right, but not for the reason you state. The one coming later would supercede
+if only they were the same. The second explanation is correct. Not sure how to
+grade this one.  Giving you 50% of this part.

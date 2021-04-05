@@ -49,3 +49,10 @@ Create a web page with appropriate styling such that the view looks, visually as
 
 <img src="images/background.png" alt="" width="50%">
 
+
+
+### Feedback
+Well done. Full score. 
+However I wish you had tried the other option
+to gain practice. Please try it after the midterm.
+

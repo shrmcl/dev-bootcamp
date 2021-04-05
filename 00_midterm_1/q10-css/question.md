@@ -11,3 +11,8 @@
 
 2. a. Compress image sizes & optimally size them to the maximum needed pixel size
 2. b. Use srcset to allow smaller screen to download a smaller version of the image (responsive images)
+
+
+### Feedback:
+Correct.  There are more ways which you may explore. If you don't find
+please ask.

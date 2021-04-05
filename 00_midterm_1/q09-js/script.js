@@ -26,3 +26,11 @@ myArray.shift();
 
 // 3. remove a single item from index 2
 myArray.splice(2, 1)
+
+
+
+// ### Feedback:
+// 1st answer is correct.
+// 2nd answer is not answering the question. The question says how to remove a specific element.
+//    The 3rd option of splice is correct. The first two are not relevant.
+// Score: 2.5 / 3.0

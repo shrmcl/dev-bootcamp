@@ -13,3 +13,10 @@ what you get.
 
 ### Please write your answer here:
 1. the first div with a class of "intro"
+
+
+### Feedback:
+
+Not correct, it is all div's with a class of intro.
+I created a codepen to test .. 
+https://codepen.io/piyushmehta/pen/MWJopWa

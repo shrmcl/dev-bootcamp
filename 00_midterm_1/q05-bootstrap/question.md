@@ -19,3 +19,7 @@ The sizes are:
     Extra large (greater than 1200px wide)
 
 The above example would display a row of 4 columns. Each column would be full screen width on an Extra small or small screen. On medium screens and greater, each column takes of 25% screen width (3 of 12 columns).
+
+
+### Feedback:
+Correct

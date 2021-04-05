@@ -30,6 +30,9 @@ What do the following CSS selectors select? Please provide short examples
         </div>
 
 
+    ### Feedback: remember that within also includes grand children etc.
+
+
     div, p
     selects any <div> and any <p> elements
     ex:
@@ -57,3 +60,8 @@ What do the following CSS selectors select? Please provide short examples
         <div></div>
         <p>This will be selected.</p>
         <p>This will be selected.</p>
+
+
+
+### Feedback:
+Correct
