@@ -1,13 +1,10 @@
 const express = require('express');
 const app = express();
-
+// Reuire the data from the data.js file
 // using desctructing to only import the zoo object from data
 const {zoo} = require('./data')
 // test if the data is imported via console
-console.log(zoo)
-
-// Reuire the data from the data.js file
-
+console.log(zoo[4].name);
 // Create a root route handler that sends the data from above to browser
 // 1. Test with Postman
 // 2. Test with CURL
@@ -23,7 +20,7 @@ app.get('/names', (req, res)=>{
     let result = zoo.map(el => {
         return `<h1>${el.name}</h1>`
     })
-
+    // transfrom array to string with .join
     res.send(result.join(''))
 
 })

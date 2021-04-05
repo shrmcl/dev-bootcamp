@@ -1,16 +1,12 @@
 const express = require('express');
 const app = express();
-
 const chalk = require('chalk');
-
 const logger = require('morgan');
 app.use(logger('dev'));
-
 const pokemon = require('pokemon');
 
 // Using your browser and dev tools - 
 // find what content type is being returned for each othe following
-
 // 1. Build a root route handler that returns "Root route"
 app.get('/', (req, res)=>{
   res.send('I am the root route.')
@@ -46,8 +42,6 @@ app.get('/pokemon', (req, res)=>{
   })
   res.send(result.join(''))
 })
-
-
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=> console.log(chalk.blue(`Listening on port ${chalk.bgWhite.red(port)}`)));
