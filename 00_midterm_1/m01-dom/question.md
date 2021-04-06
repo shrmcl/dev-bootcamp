@@ -17,6 +17,6 @@ what you get.
 
 ### Feedback:
 
-Not correct, it is all div's with a class of intro.
+Correct.
 I created a codepen to test .. 
-https://codepen.io/piyushmehta/pen/MWJopWa
+https://codepen.io/piyushmehta/pen/MWJopWa?editors=1111
