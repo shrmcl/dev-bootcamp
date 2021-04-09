@@ -1,0 +1,10 @@
+<%- include('partials/header')  %> 
+    <h1>here's a list of animals</h1>
+    
+    <% console.log(data) %>
+
+    <% data.forEach(element => { %>
+        <p><%= element %></p>
+    <% }) %>
+        
+<%- include('partials/footer')  %> 

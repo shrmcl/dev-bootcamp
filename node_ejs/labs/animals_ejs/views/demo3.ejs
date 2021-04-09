@@ -1,0 +1,13 @@
+<%- include('partials/header')  %> 
+    <h1>I am a list of animals</h1>
+
+    <% data.forEach(element => { %>
+        <p>Name of animal:
+            <%= element.name %>
+        </p>
+        <p>Breed:
+            <%= element.breed %>
+        </p>
+    <% }) %>
+
+<%- include('partials/footer')  %> 
