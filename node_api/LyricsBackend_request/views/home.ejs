@@ -1,0 +1,22 @@
+
+  <%- include ('partials/header') %>
+
+<h1 class="text-center text-white">Find the Lyrics to a Song</h1>
+<div class="container well fs-4">
+  <form action="getLyrics" method="get">
+
+    <label class="text-white">Enter artist:
+      <input class="px-3" type="search" name="artist" id="artist1" placeholder="artist..." autocomplete="off"/>
+    </label>
+
+    <label class="text-white">Enter song title:
+      <input class="px-3" type="search" name="title" id="title1" placeholder="song title..." autocomplete="off"/>
+    </label>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-danger" type="reset">Reset</button>
+  </form>
+</div>
+
+  <%- include ('partials/footer') %>
+  
