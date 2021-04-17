@@ -1,0 +1,13 @@
+<% data.forEach(element => { %>
+    <p><%= element.name %> - </p> <%= element.price %> = <%= element.rating %> </p>
+    
+    <!-- determine stars image by rating # for whole & half amts -->
+    <%  if(element.rating%1 == 0) { %> 
+        <% stars = `/yelp_stars/regular/regular_${element.rating}.png` %> 
+        <% } else { %> 
+            <% stars = `/yelp_stars/regular/regular_${Math.floor(element.rating)}_half.png` %> 
+            <% } %>
+    <p>Stars: 
+        <img src= "<%= stars %>" alt="stars">
+    </p>
+<% }) %>
