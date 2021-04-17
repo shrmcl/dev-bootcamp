@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 const yelp = require('yelp-fusion');
 const apiKey =
-  "TGmj7XiFfyILe004o67z3COKqqat0-RPorHfIepxlF1mCRCUBSy7gIwcUJaATMMO0c0MIeINi8qbQ44tWt-yYsYk2aWto0n0GrDyjQ0A7Jft5ZV6xRTJDGPNckAgW3Yx";
+  "...";
 const client = yelp.client(apiKey);
 
 
