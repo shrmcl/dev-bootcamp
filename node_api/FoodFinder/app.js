@@ -6,13 +6,9 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('home');
 })
- 
-
-
 
 const yelp = require('yelp-fusion');
-const apiKey =
-  "...";
+const apiKey ="[insert my API key]"; // *** add api key
 const client = yelp.client(apiKey);
 
 
