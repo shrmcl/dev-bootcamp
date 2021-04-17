@@ -1,0 +1,18 @@
+<%- include('partials/header') %> 
+
+<h1>BitCoin Price App</h1>
+<form action="/getPrice">
+    <input type="radio" id="usd" name="country" checked value="USD">
+    <label for="usd">USD</label>
+    <input type="radio" id="gbp" name="country" value="GBP">
+    <label for="gbp">GBP</label>
+    <input type="radio" id="eur" name="country" value="EUR">
+    <label for="eur">EUR</label>
+    <input type="submit" id="btn" value="Get Price">
+</form>
+
+<h1>This is the current price:</h1>
+
+<h2><span><%- symbol %><%= rate %></span></h2>
+
+<%- include('partials/footer') %> 
