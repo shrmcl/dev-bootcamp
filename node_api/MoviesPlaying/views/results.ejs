@@ -1,8 +1,25 @@
 <%- include('./partials/header') %> 
 
-<div class="container-fluid fullscreen">
-    <h1>RESULTS PAGE</h1>
-    
+
+<!-- the movie title, overview, rating, and poster image. -->
+
+<div class="container-fluid">
+    <h1>Now playing at a theatre near you:</h1>
+
+    <div class="movieResults">
+
+        <% data.forEach(el => { %>
+            <h2> <%= el.original_title %> </h2>
+            <p> <%= el.overview %> </p>
+            <p>Rating:  <%= el.vote_average %> of 10 stars </p>
+
+            <% let path = "https://image.tmdb.org/t/p/w200/" + el.poster_path %>
+            <img src="<%= path %>" alt="movie poster">
+         
+        <% }) %>
+
+
+    </div>
 </div>
 
 

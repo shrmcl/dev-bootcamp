@@ -8,8 +8,9 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-// TMDB api key and endpoint
-let myKey = '4655033f7ad9bef3342338a2c91e15ae';
+// TMDB api key and endpoint 
+// *** enter your TMDB API KEY below ***
+let myKey = '[enter your api key here]';
 let url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=' + myKey + '&language=en-US&page=1'
 
 app.get('/getMovies', (req, res) => {
@@ -24,7 +25,7 @@ app.get('/getMovies', (req, res) => {
    
     // add the data variables to be passed into the ejs . i.e. {data: data}
 
-    res.render('results');
+    res.render('results', {data: json.results});
    })
 
 })
