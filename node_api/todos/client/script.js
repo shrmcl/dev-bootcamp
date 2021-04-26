@@ -1,5 +1,5 @@
+// NOTE: Original trial class code
 const baseUrl = "http://localhost:3000"
-
 // READ
 $(document).ready(function(){
     let endpoint = `${baseUrl}/todos`;
@@ -16,7 +16,7 @@ $(document).ready(function(){
         $('ul').empty();
         dataArray.forEach(function(todo){
             $("ul").append(
-                `<li>${todo.description}<span><i class='far fa-trash-alt'></i></span></li>`
+                `<li data-id=${todo.id}>${todo.description}<span><i class='far fa-trash-alt'></i></span></li>`
             );
         })
     })
@@ -24,16 +24,13 @@ $(document).ready(function(){
         console.error("Issues READING the data.", error)
     })
 })
-
-
-
 // CREATE
 $("input").keypress(function (event) {
     if (event.which === 13 && $(this).val()) {
-        var newTodoItem = {
+        let newTodoItem = {
             description: $(this).val()
         };
-        let endpoint = `${baseUrl}/todos`;        
+        let endpoint = `${baseUrl}/todos`;
         fetch(endpoint, {
             method: "POST",
             body: JSON.stringify(newTodoItem),
@@ -41,17 +38,16 @@ $("input").keypress(function (event) {
                 'Content-Type': 'application/json'
             }
         })
-        
         .then(function(response){
             if(!response.ok){
-                throw Error("issues!")
+                throw Error("Issues!!!!")
             } else {
                 return response.json();
             }
         })
         .then(function(newTodo){
             $("ul").append(
-                 `<li>${newTodo.description}<span><i class='far fa-trash-alt'></i></span></li>`
+                `<li data-id=${newTodo.id}>${newTodo.description}<span><i class='far fa-trash-alt'></i></span></li>`
                 );
             $("input").val("");
         })
@@ -59,26 +55,30 @@ $("input").keypress(function (event) {
             console.error("Issues with CREATING data on backend")
         })
     }
-})
-
-// NOTE: Original trial class code
-
-// $("input").keypress(function (event) {
-//     if (event.which === 13 && $(this).val() !== "") {
-//     var todoItem = $(this).val();
-//     $("ul").append(
-//         `<li>${todoItem}<span><i class='far fa-trash-alt'></i></span></li>`
-//         );
-//     $("input").val("");
-//     }
-// });
-
-// $("ul").on("click", "li", function () {
-//     $(this).toggleClass("completed");
-// });
-
-// $("ul").on("click", "span", function (event) {
-//     $(this).parent().remove();
-// });
-
-
+});
+// UPDATE
+$("ul").on("click", "li", function () {
+    $(this).toggleClass("completed");
+});
+// DELETE
+$("ul").on("click", "span", function (event) {
+    let thisId = $(this).parent().data('id'); 
+    let endpoint = `${baseUrl}/todos/${thisId}`;
+    fetch(endpoint,
+        {   method: "DELETE"}
+        )
+    .then(function(response){
+        if(!response.ok){
+            throw Error("Cannnot delete");
+        } else {
+            return response.json();
+        }
+    })
+    .then(function(data){
+        console.log(data);
+        $(this).parent().remove();
+    })
+    .catch(function(error){
+        console.error("Issue with deleting from backend");
+    })
+});
