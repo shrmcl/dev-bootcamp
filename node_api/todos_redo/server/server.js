@@ -3,6 +3,17 @@ const app = express();
 
 const logger = require('morgan');
 app.use(logger('dev'));
+
+const bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
+
+
+// tell server to use 'client' folder
+app.use(express.static('../client'));
+
 // import our data from fakeData.js
 const {toDoArray} = require('./fakeData')
 // route handler for root
@@ -17,9 +28,11 @@ app.get('/todos', (req, res) => {
 
 // CREATE - POST - user adds a new todo item
 app.post('/todos', (req, res) => {
+    console.log(req.body);
+
     let newTodo = {
         id: 4,
-        description: 'buy more stuff',
+        description: req.body.description,
         isComplete: false
     }
     // add new todo item to our toDoArray & send client the new todo item
