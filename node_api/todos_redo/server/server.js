@@ -4,34 +4,37 @@ const app = express();
 const logger = require('morgan');
 app.use(logger('dev'));
 
-const bodyParser = require('body-parser');
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
-app.use(bodyParser.json());
-
-
-// tell server to use 'client' folder
-app.use(express.static('../client'));
+// NOTE: replaced with built-in express methods
+// const bodyParser = require('body-parser');
+// // parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }));
+// // parse application/json
+// app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // import our data from fakeData.js
 const {toDoArray} = require('./fakeData')
-// route handler for root
-app.get('/', (req, res) => {
-    res.send('i am root.')
-})
+
+// tell server to use 'client' folder
+app.use(express.static('../client'));
+// NOTE: Do not need if using above line of code
+// app.get('/', (req, res)=>{
+//   res.send('Root route.')
+// })
 
 // READ - GET - send the toDoArray to client as JSON
 app.get('/todos', (req, res) => {
     res.json(toDoArray);
 })
 
+let newId = 3;
 // CREATE - POST - user adds a new todo item
 app.post('/todos', (req, res) => {
     console.log(req.body);
 
     let newTodo = {
-        id: 4,
+        id: newId++,
         description: req.body.description,
         isComplete: false
     }
