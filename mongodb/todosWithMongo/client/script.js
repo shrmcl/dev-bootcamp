@@ -35,7 +35,7 @@ $(document).ready(function () {
       dataArray.forEach(function (todo) {
         let completed = todo.isComplete ? "completed" : "";
         $("ul").append(
-          `<li data-id=${todo.id} class=${completed}>${todo.description}<span><i class='far fa-trash-alt'></i></span></li>`
+          `<li data-id=${todo._id} class=${completed}>${todo.description}<span><i class='far fa-trash-alt'></i></span></li>`
         );
       });
     })
@@ -67,7 +67,7 @@ $("input").keypress(function (event) {
       })
       .then(function (newTodo) {
         $("ul").append(
-          `<li data-id=${newTodo.id}>${newTodo.description}<span><i class='far fa-trash-alt'></i></span></li>`
+          `<li data-id=${newTodo._id}>${newTodo.description}<span><i class='far fa-trash-alt'></i></span></li>`
         );
         $("input").val("");
       })

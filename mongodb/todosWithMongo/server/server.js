@@ -6,7 +6,6 @@ app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 app.use(express.static("../client"));
 
 // NOTE: HOW TO CONVERT TO MONGO/MONGOOSE
@@ -14,61 +13,84 @@ app.use(express.static("../client"));
 //    a) install Mongoose
 //    b) connect
 
-// CONNECTION
+// REQUIRE KEYS
 const keys = require('./config/keys');
-
+// CONNECTION
 const mongoose = require('mongoose');
 mongoose.connect(keys.mongoURI,{useNewUrlParser: true,useUnifiedTopology: true})
 .then(()=> console.log('Connected to database'))
 .catch(error => console.log("Cannot connect to DB"));
 
-
 // 2) Build blueprints
 //    a) Schema
+let todoSchema = mongoose.Schema({
+  // mongoose will automatically ad the id
+  // id: Number, 
+  description: {
+    type: String,
+    required: [true, "Must have description!"]
+  },
+  isComplete: {
+    type: Boolean,
+    // by default the todo will need to be false (not done yet)
+    default: false
+  }
+})
 //    b) Model
+let TodoModel = mongoose.model("Todos", todoSchema)
 // 3) Build queries
-//    a) Read with Mongoose
-//    b) Create with Mongoose
-//    c) Delete with Mongoose
-//    d) Update with Mongoose
-
-const { toDoArray } = require("./fakeData");
 
 // Read - GET
 app.get("/todos", (req, res) => {
-  res.status(264).json(toDoArray);
+  TodoModel.find({}, (error, results)=>{
+    if(error) {
+      console.log("Error getting data from db: ", error)
+    } else {
+      console.log("Results: ", results)
+      res.status(264).json(results);
+    }
+  })
 });
-
-// used temp for creating a a unique idea
-let newId = 4;
 
 // Create - POST
 app.post("/todos", (req, res) => {
-  let newTodo = {
-    id: newId++,
+  let newTodo = new TodoModel({
     description: req.body.description,
-    isComplete: false,
-  };
-  toDoArray.push(newTodo);
-  res.json(newTodo);
+  });
+  newTodo.save((error, result)=>{
+    if(error){
+      console.log("Error: ", error)
+    } else {
+      console.log("Success: ", result)
+      res.json(result);
+    }
+  })
 });
 
 // Delete - DELETE
 app.delete("/todos/:id", (req, res) => {
-  let requestedTodoId = parseInt(req.params.id);
-  let requestedTodoIndex = toDoArray.findIndex((todo) => {
-    return todo.id === requestedTodoId;
-  });
-  toDoArray.splice(requestedTodoIndex, 1);
-  res.json(toDoArray);
+  let requestedTodoId = req.params.id);
+  TodoModel.findByIdAndDelete(requestedTodoId, (error, result)=>{
+    if(error){
+      console.log("Error deleting from db: ", error)
+    } else {
+      console.log("Deleted: " result)
+      res.json(result);
+    }
+  })
+  res.json();
 });
 
 // Update - PUT
 app.put("/todos/:id", (req, res) => {
-  let requestedTodoId = parseInt(req.params.id);
-  let requestedTodo = toDoArray.find((todo) => {
-    return todo.id === requestedTodoId;
-  });
+  let requestedTodoId = req.params.id;
+  // findById
+    // get a result back
+    // if error  
+      // handle it
+    // else
+      // update 'iscomplete'
+      // .save the new result
   requestedTodo.isComplete = !requestedTodo.isComplete;
   res.json(requestedTodo);
 });
