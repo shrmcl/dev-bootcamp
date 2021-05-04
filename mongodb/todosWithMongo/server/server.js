@@ -69,12 +69,12 @@ app.post("/todos", (req, res) => {
 
 // Delete - DELETE
 app.delete("/todos/:id", (req, res) => {
-  let requestedTodoId = req.params.id);
+  let requestedTodoId = req.params.id;
   TodoModel.findByIdAndDelete(requestedTodoId, (error, result)=>{
     if(error){
       console.log("Error deleting from db: ", error)
     } else {
-      console.log("Deleted: " result)
+      console.log("Deleted: ", result)
       res.json(result);
     }
   })
