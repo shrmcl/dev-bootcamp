@@ -84,15 +84,20 @@ app.delete("/todos/:id", (req, res) => {
 // Update - PUT
 app.put("/todos/:id", (req, res) => {
   let requestedTodoId = req.params.id;
-  // findById
-    // get a result back
-    // if error  
-      // handle it
-    // else
-      // update 'iscomplete'
-      // .save the new result
-  requestedTodo.isComplete = !requestedTodo.isComplete;
-  res.json(requestedTodo);
+  // need to find the document matching our id
+  TodoModel.findById(requestedTodoId, function (error, result) {
+    // if id does not exist, let the client know
+    if (error) res.status(447).send("id does not exist for updating");
+    //  when we get the "receipt" from the database, it is now called result
+    // need to toggle the boolean value
+    else result.isComplete = !result.isComplete;
+    // NOW, we can save the new updated document
+    // this will replace the ENTIRE document in mongo with current data
+    result.save(function (err, updatedTodo) {
+      if (err) res.status(448).send("Cannot update document");
+      else res.status(202).send(updatedTodo);
+    });
+  });
 });
 
 const port = process.env.PORT || 3000;
