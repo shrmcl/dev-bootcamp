@@ -46,6 +46,23 @@ SELECT first_name, last_name, hire_date,
 FROM employees 
 WHERE salary > 8000 AND hire_date > '31-Dec-1996';
 
+-- TASK 4: List the full names and their department names of the all employees in the "bootcamp" database. 
+    -- Do the same for the employees that work for department "Sales".
+    -- Order the results by hiring date with the most recent hires at the top.
+SELECT first_name || ' ' || last_name AS "full name", 
+department_name,
+to_char(hire_date, 'Mon-DD-YYYY') AS "hire date"
+FROM employees AS e
+JOIN departments AS d 
+ON e.department_id = d.department_id
+WHERE department_name = 'Sales'
+ORDER BY hire_date DESC;
 
-
-           
+-- TASK 5: List the first, last, email, department name and city of all employees that are Execs.
+SELECT first_name, last_name, email, department_name, city
+FROM employees AS e 
+JOIN departments AS d
+ON e.department_id = d.department_id
+JOIN locations AS l 
+ON l.location_id = d.location_id
+WHERE department_name = 'Executive';
