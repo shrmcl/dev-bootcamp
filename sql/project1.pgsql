@@ -35,14 +35,17 @@ WHERE salary = (
     SELECT MIN(salary)
     FROM employees);
 
--- TASK 3c: repeat Task 3a but add total compen (with commissions) as % of Min salary in Task 3b
+-- TASK 3c: repeat Task 3a but add total compensation (with commissions) as % of Min salary in Task 3b
 SELECT first_name, last_name, hire_date,
     -- force commision to 0 if null via COALESCE
-    salary + salary * COALESCE(commission_pct, 0) AS "total comp",
-    -- round to 2 decimals
-    ROUND((salary + salary * COALESCE(commission_pct, 0))/
-        (SELECT
-            MIN(salary) 
-        FROM employees) * 100, 2) AS "perc. of company minimum"
+   salary * COALESCE(commission_pct, 0) AS "total commision",
+   salary + salary * COALESCE(commission_pct, 0) AS "total comp",
+        -- round to 2 decimals
+        ROUND((salary + salary * COALESCE(commission_pct, 0)) /
+        (SELECT MIN(salary) FROM employees) * 100, 0) || '%' AS "perc. of company minimum"
 FROM employees 
-WHERE salary > 8000 AND to_char(hire_date, 'DD-Mon-YYYY') > '12/12/1996';
+WHERE salary > 8000 AND hire_date > '31-Dec-1996';
+
+
+
+           
