@@ -53,3 +53,13 @@ VALUES
   0.09,
   201,
   10);
+
+
+SELECT
+  first_name || ' ' || last_name AS "FULL NAME",
+  salary
+FROM employees
+WHERE salary between 25000 and 200000;
+
+
+
