@@ -5,3 +5,14 @@ Output should look like ..
 ```
 -10 -8 -7 -5 -4 -2 -1 1 2 4 5 7 8 10
 ```
+
+## Answer:
+let returnedNums = "";
+for(i = -10; i <= 10; i++) {
+    if( i % 3 === 0) {
+        returnedNums = returnedNums
+    } else {
+        returnedNums = returnedNums + " " + i
+    }
+}
+console.log(returnedNums);

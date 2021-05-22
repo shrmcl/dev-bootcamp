@@ -2,4 +2,3 @@ Write a JavaScript function which will take an array of numbers and return the s
 
 For example: [1,2,3,4,5]
 Expected Output : 2,4
-

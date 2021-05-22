@@ -7,4 +7,6 @@
 4. db.collection('res').find({ "score": { $gt: 30 }});
 
 ## Answer:
-
+2. db.collection('res').find({ "score" > 30 }});
+3. db.collection('res').find({ score: > 30 });
+4. db.collection('res').find({ "score": { $gt: 30 }});

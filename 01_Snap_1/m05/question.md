@@ -11,3 +11,5 @@
 Choose all correct answers. All answers needed for full credit.
 
 ## Answer:
+2. used with sensitive data
+5. used with files

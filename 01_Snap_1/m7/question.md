@@ -8,7 +8,8 @@
 4. db.restaurants.find({ "borough" : "Queens" })
 
 ### Answer:
-
+2. db.restaurants.find({ "borough" : { $eq : "Queens" }})
+4. db.restaurants.find({ "borough" : "Queens" })
 
 ### MONGODB CONNECTION:
 

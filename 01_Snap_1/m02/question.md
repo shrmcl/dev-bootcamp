@@ -8,3 +8,4 @@
 4. res.locals.pic
 
 ## Answer:
+2. req.body
