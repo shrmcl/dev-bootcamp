@@ -12,3 +12,6 @@
 2. is comprised of MIME types as type/subtype format, e.g. application/json or text/html
 3. is not mandatory that the server will be able to provide the data as preferred by a client
 4. allows priority levels by specifying quality value, e.g. `text/html?q=1.0, application/xml?q=0.9`
+
+
+<!-- These are all true except for 3 -->

@@ -11,6 +11,7 @@
 2. db.restaurants.find({ "borough" : { $eq : "Queens" }})
 4. db.restaurants.find({ "borough" : "Queens" })
 
+<!-- Correct -->
 ### MONGODB CONNECTION:
 
 If you'd like to test your answer, connect to a mongo db instance as follows:
