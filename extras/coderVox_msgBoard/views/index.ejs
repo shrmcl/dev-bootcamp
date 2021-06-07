@@ -1,11 +1,16 @@
 <%- include("partials/header")  %> 
 
 <h1>home page</h1>
-
+<!-- ejs with bootstrap card  -->
 <% posts.forEach(post => { %> 
-    <%= post.topic  %> 
-    <%= post.message  %> 
-    <%= post.name  %> 
+    <div class="card my-4">
+        <div class="card-body">
+            <h5 class="card-title"><%= post.topic  %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= post.name  %></h6>
+            <p class="card-text"><%= post.message  %></p>
+            <a href="#" class="btn btn-info">View More</a>
+        </div>
+    </div>
 <% }) %> 
 
 <%- include("partials/footer")  %> 

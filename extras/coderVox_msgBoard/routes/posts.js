@@ -9,7 +9,11 @@ router.get("/", (req, res) => {
         name: "Linda"
     }];
     res.render("index", {posts: posts});
-})
+});
+
+router.get("/new", (req, res) => {
+    res.render("new");
+});
 
 
 // allow app.js to use these routes
