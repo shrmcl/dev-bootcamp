@@ -3,13 +3,11 @@
     // CONVERTING DATA TYPES / CHAINING METHODS !!!!!
 
 
-
+// PROBLEM 1
 // // Using JavaScript, write a program that console log the numbers from 5 to 100. But for multiples of 7 print “Hello” instead of the number and for the multiples of 5 print “JM”. For numbers which are multiples of both 5 and 7 log “Hello JM”. You have appox. 15 min
 
 let results = [];
-
 function myFunction() {
-    
     for (let i = 5; i <= 100; i++) {
         if (i % 5 === 0 && i % 7 === 0) {
             results.push("Hello JM") 
@@ -21,18 +19,14 @@ function myFunction() {
             results.push(i) 
         }
     }
-
     return results.join('\n');
-
 }
 
 console.log(myFunction())
 
     
-// let x = myFunction()
-// console.log("numbers divisible by five " )
 
-
+// PROBLEM 2
 // Write a JavaScript function that reverses a number.
 // For example, x = 32243;
 // Expected Output : 34223
