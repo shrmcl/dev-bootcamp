@@ -22,8 +22,23 @@
 
     <!-- JSX -->
     <script type="text/babel">
+
+        class FeelingsList extends React.Component {
+            render(){
+                const theStyles = {fontSize: "24px"};
+                return(
+                    <ul style={theStyles}>
+                        <li>Happy</li>
+                        <li>Sad</li>
+                    </ul>
+                )
+            }
+        }
+
         class Garfield extends React.Component {
             render() {
+                // adding CSS as object
+                const theStyles = {fontSize: "24px"}
                 return (
                     // className is a CSS class
                     // Must close self-closing tags in JSX
@@ -31,10 +46,7 @@
                     <h1 className="name">Life</h1>
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Garfield_the_Cat.svg/250px-Garfield_the_Cat.svg.png" alt=""></img>
                     <h3>How does he feel?</h3>    
-                    <ul>
-                        <li>Happy</li>
-                        <li>Sad</li>
-                    </ul>
+                    <FeelingsList />
                 </div>);
             }
         }
