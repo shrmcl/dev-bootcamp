@@ -5,7 +5,16 @@ const mongoose = require("mongoose");
 const postRoutes = require("./routes/posts");
 const port = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost:27017/message_board', {useNewUrlParser: true, useUnifiedTopology: true});
+
+
+// copying from todo app (as well as my config folder)
+// REQUIRE KEYS
+const keys = require('./config/keys');
+mongoose.connect(keys.mongoURI,{useNewUrlParser: true,useUnifiedTopology: true})
+.then(() => console.log('Connected to database'))
+.catch(error => console.log("Cannot connect to DB"));
+
+
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
