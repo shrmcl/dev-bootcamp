@@ -10,10 +10,15 @@ app.get('/', (req, res) => {
     res.render('home.ejs', { type: types })
 })
 
+// :)
+// app works for:
+// busywork, free: y, participants: 1 
+// :)
+
 app.get('/activity', (req, res) => {
     // console.log(req)
     const { type, price, participants } = req.query
-    
+    console.log(type, price, participants);
     const urlStr = `http://www.boredapi.com/api/activity?type=${type}&price=${price}&participants=${participants}`
     // const urlStr = `http://www.boredapi.com/api/activity?type=${type}&minprice=0&maxprice=${price}&participants=${participants}`
 
