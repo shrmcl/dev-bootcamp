@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs'); -%>
+
+<div class="form-container">
+    <h2>Set Some Parameters!</h2>
+    <form class="form" action="/activity">
+        <div class="form__input">
+            <label for="activity">Type of activity:
+                <select name="type" id="type">
+                    <% type.forEach(type=> { %>
+                        <option value="<%= type %>">
+                            <%= type %>
+                        </option>
+                    <% }) %>
+                </select>
+            </label>
+        </div>
+        <div class="form__input">
+            <label for="price">Does it need to be Free:
+                <select name="price" id="price">
+                    <option value="0">Yes</option>
+                    <option value="1">No</option>
+                </select>
+            </label>
+        </div>
+        <div class="form__input">
+            <label for="participants">How many participants:
+                <input type="text" id="participants" name="participants">
+            </label>
+        </div>
+        <div class="form__submit">
+            <button class="button" type="submit">Solve your boredom!</button>
+        </div>
+    </form>
+</div>
+
+
+<%- include('./partials/footer.ejs'); -%>
