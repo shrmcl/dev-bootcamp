@@ -3,21 +3,27 @@ const app = express()
 const fetch = require('node-fetch')
 const port = process.env.PORT || 8080
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     let types = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
     res.render('home.ejs', { type: types })
 })
 
-app.get('/getActivity', (req, res) => {
-    const { type, price, participants } = req.params
+app.get('/activity', (req, res) => {
+    // console.log(req)
+    const { type, price, participants } = req.query
+    
+    const urlStr = `http://www.boredapi.com/api/activity?type=${type}&price=${price}&participants=${participants}`
+    // const urlStr = `http://www.boredapi.com/api/activity?type=${type}&minprice=0&maxprice=${price}&participants=${participants}`
 
-    const urlStr = `http://www.boredapi.com/api/activity?type=${type}&minprice=0&maxprice=${price}&participants=${participants}`
 
     fetch(urlStr)
         .then(res => res.json())
         .then(data => {
-            if(data.error) res.render('error.ejs', { error: data.error })
-
+            if(data.error) 
+            res.render('error.ejs', { error: data.error })
+            
             else res.render('result.ejs', { data })
         })
         .catch(err => {
@@ -26,5 +32,5 @@ app.get('/getActivity', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('App listening on port 3000')
+    console.log(`App listening on port ${port}`)
 })
