@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/results', (req, res) => {
-    console.log(req);
+    console.log("req.query results: ", req.query);
     res.render('results.ejs')
 })
 
