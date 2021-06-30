@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+// adding comment for testing git
 
 // to parse the POST form data, use this parser
 // "true" instead of "false" fixed the issue of getting body: "[Object: null prototype] " returned before req.body data
