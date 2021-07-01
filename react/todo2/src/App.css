@@ -17,3 +17,14 @@
   text-decoration: line-through;
   color: grey;
 }
+
+.container {
+position: relative;
+width: 50vw;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  border: 1px solid white;
+}
