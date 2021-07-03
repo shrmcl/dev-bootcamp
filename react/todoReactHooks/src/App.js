@@ -1,5 +1,5 @@
 // useState is a hook (a function that is programmed to "hook" into React)
-import {useCallback, useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
@@ -10,17 +10,7 @@ function App() {
 
   // it is a POJO (plain old javascript object)
   const initialState = {
-    todos: [
-      {
-        id: 302,
-        description: "call mom",
-        isComplete: false
-      }, {
-        id: 420,
-        description: "Pickup groceries",
-        isComplete: true
-      }
-    ],
+    todos: [],
     newTodo: ""
   }
 
@@ -35,44 +25,78 @@ function App() {
   const [state, setState] = useState(initialState) 
   // const[counter,setCounter] = useState(1);
 
-  //Update todo - toggle completion status
+  // api url 
+  let url = "http://localhost:3001/todos"
+
+  // READ 
+  // call the api
+  // useEffect 
+  useEffect(() => {
+    fetch(url)
+    // parse response from api into json
+    .then(res => res.json())
+    .then(data => {
+      // s represents previous state
+      setState(s => {
+        return {
+          // copy previous state
+          ...s,
+          // override todos from previous state with new data
+          todos: data,
+          newTodo: ""
+        }
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }, [url])
+
+  // UPDATE - toggle completion status
   const onclickMarkTodoComplete = id =>{
-    // does this function fire? console.log to check
-    console.log(id)
-    // create a copy of the state object using the "state" handle
-    let newstate = {...state}
-    // this_t is a reference to the specific todo that the user
-    // wishes to toggle.  the reference points to the click'ed
-    // todo object within the array within the state
-    let this_t = newstate.todos.find(t => t.id === id)
-    // flip the status
-    this_t.isComplete = !this_t.isComplete;
-    // now make a copy of the state and replace the state with
-    // the new state.  The spread operator helps to create a new
-    // copy of the state
-    setState(newstate)
+    fetch(`${url}/${id}`, {method: 'PUT'})
+      .then(() => {
+        setState(s => {
+          let this_t = s.todos.find(t => t.id === id)
+          this_t.isComplete = !this_t.isComplete;
+          return s;
+        })
+      })
+    }
+
+  // CREATE
+  const onAddTodo = event => {
+    // prevent form from refreshing page upon submit
+    event.preventDefault();
+    // if no new todo, exit the function / return nothing
+    if (!state.newTodo) return false;
+
+  fetch(url, {
+    method: 'POST',
+    body: `description=${state.newTodo}`,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    // (Cross-Origin Resource Sharing)
+    mode: 'cors'  // client origin: http://localhost:3000
+                  // server origin: https://accsoftwarebootcamp-todos.herokuapp.com/todos
+  })
+
+  // ERROR COMPILING: 'RES' NOT DEFINED
+  .then(res = res.json())
+  .then(data => {
+    setState(s => {
+      return {
+        ...s,
+        todos: [...s.todos, data],
+        newTodo: ""
+      }
+    })
+  })
+  .catch(err => {console.log(err)})
   }
 
-  //CREATE
-  const onAddTodo = useCallback(event => {
-    event.preventDefault();
-    if (!state.newTodo) return false;
-    let newState = {
-      ...state,         // capture the existing state
-      todos: [          // overwrite the todos property in state
-        ...state.todos, // capture existing todos
-        {               // add the new todo
-          id: Date.now(),
-          description: state.newTodo,
-          isComplete: false
-        }
-      ],
-      newTodo: ""
-    }
-    setState(newState) // swap out the old state for the new state
-  }, [state, setState])
-
-  // CONTROLLED COMPONENT
+  // controlled component
   const onChange = event => {
     let newState = {
       ...state,
