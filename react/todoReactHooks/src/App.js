@@ -32,7 +32,7 @@ function App() {
   // call the api
   // useEffect 
   useEffect(() => {
-    fetch(url)
+    fetch(url, {method: 'GET'})
     // parse response from api into json
     .then(res => res.json())
     .then(data => {
@@ -75,14 +75,12 @@ function App() {
     method: 'POST',
     body: `description=${state.newTodo}`,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     // (Cross-Origin Resource Sharing)
     mode: 'cors'  // client origin: http://localhost:3000
                   // server origin: https://accsoftwarebootcamp-todos.herokuapp.com/todos
   })
-
-  // ERROR COMPILING: 'RES' NOT DEFINED
   .then(res = res.json())
   .then(data => {
     setState(s => {
