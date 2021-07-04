@@ -26,7 +26,7 @@ function App() {
   // const[counter,setCounter] = useState(1);
 
   // api url 
-  let url = "http://localhost:3001/todos"
+  let url = 'http://localhost:3001/todos';
 
   // READ 
   // call the api
@@ -53,7 +53,8 @@ function App() {
   }, [url])
 
   // UPDATE - toggle completion status
-  const onclickMarkTodoComplete = id =>{
+  const onclickMarkTodoComplete = id => {
+    // console.log("id: ", id)
     fetch(`${url}/${id}`, {method: 'PUT'})
       .then(() => {
         setState(s => {
@@ -81,7 +82,7 @@ function App() {
     mode: 'cors'  // client origin: http://localhost:3000
                   // server origin: https://accsoftwarebootcamp-todos.herokuapp.com/todos
   })
-  .then(res = res.json())
+  .then(res => res.json())
   .then(data => {
     setState(s => {
       return {
@@ -136,7 +137,7 @@ function App() {
           { state.todos.map(t => (
               <li 
                 key={t.id}
-                className={t.isComplete ? "completed": "not"}
+                className={t.isComplete ? "completed" : "not"}
                 // with onClick provide a function that will run,
                 // instead of actually running the function
                 onClick={
