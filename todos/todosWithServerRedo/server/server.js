@@ -1,4 +1,6 @@
 const express = require('express');
+// requiring cors to server React Todos app
+const cors = require('cors');
 const app = express();
 
 const logger = require('morgan');
@@ -12,6 +14,7 @@ app.use(logger('dev'));
 // app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 // import our data from fakeData.js
 const {toDoArray} = require('./fakeData')
@@ -25,14 +28,15 @@ app.use(express.static('../client'));
 
 // READ - GET - send the toDoArray to client as JSON
 app.get('/todos', (req, res) => {
-    res.json(toDoArray);
+    // res.json(toDoArray);
+    res.status(264).json(toDoArray);
 })
 
-let newId = 3;
+// used temp to create new id
+let newId = 4;
+
 // CREATE - POST - user adds a new todo item
 app.post('/todos', (req, res) => {
-    console.log(req.body);
-
     let newTodo = {
         id: newId++,
         description: req.body.description,
@@ -72,5 +76,5 @@ app.delete('/todos/:id', (req, res) => {
     res.json(toDoArray);
 })
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, ()=> console.log(`listening on port ${port}.`))
