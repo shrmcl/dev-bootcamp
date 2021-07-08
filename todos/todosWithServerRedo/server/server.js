@@ -23,15 +23,6 @@ app.use(express.static('../client'));
 //   res.send('Root route.')
 // })
 
-// // added a CORS header to allow the React todo app access to this api
-// // '*' gives any site access. this can be modified to a specific url.
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-    next();
-  });
-  
-
 // READ - GET - send the toDoArray to client as JSON
 app.get('/todos', (req, res) => {
     res.json(toDoArray);
@@ -81,5 +72,5 @@ app.delete('/todos/:id', (req, res) => {
     res.json(toDoArray);
 })
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`listening on port ${port}.`))
