@@ -1,3 +1,6 @@
+// need to debug PUT styling
+// need to debug DELETE so it req to server
+
 // useState is a hook (a function that is programmed to "hook" into React)
 import {useState, useEffect} from 'react';
 import './App.css';

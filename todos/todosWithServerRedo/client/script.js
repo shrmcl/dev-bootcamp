@@ -1,6 +1,6 @@
 // NOTE: Original trial class code
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = "http://localhost:3001";
 
 // READ
 // use document.ready() to trigger the fetch() 
