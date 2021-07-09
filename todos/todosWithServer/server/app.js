@@ -4,6 +4,8 @@ const app = express();
 const logger = require('morgan');
 app.use(logger('dev'));
 
+app.use(require('cors')())
+
 // NOTE: replaced with built-in express methods
 // const bodyParser = require('body-parser');
 // // parse application/x-www-form-urlencoded

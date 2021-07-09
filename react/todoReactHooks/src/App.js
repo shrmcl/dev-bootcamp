@@ -60,14 +60,14 @@ function App() {
     // the route specified for PUT on the todosWithServer server file ("todos/:id")
     fetch(`${url}/${id}`, {method: 'PUT'})
       .then(() => {
-        setState(s => {
-          let this_t = s.todos.find(t => t.id === id)
-          this_t.isComplete = !this_t.isComplete;
-          return s;
-        })
+        let s = {...state}
+        let t = s.todos.find(todo => todo.id === id)
+        t.isComplete = !t.isComplete;
+        setState(s)
       })
-    }
-
+      .catch(err => {console.log(err)})
+  }
+  
   // CREATE
   const onAddTodo = event => {
     // prevent form from refreshing page upon submit
