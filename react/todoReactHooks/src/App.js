@@ -57,7 +57,7 @@ function App() {
 
   // UPDATE - toggle completion status
   const onclickMarkTodoComplete = id => {
-    // console.log("id: ", id)
+    // the route specified for PUT on the todosWithServer server file ("todos/:id")
     fetch(`${url}/${id}`, {method: 'PUT'})
       .then(() => {
         setState(s => {
@@ -124,7 +124,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Todomatic</h1>
+        <h1>Todomatic123</h1>
         
         <form onSubmit={onAddTodo}>
           <input 
