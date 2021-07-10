@@ -25,51 +25,18 @@ function Square(props) {
 }
   
   class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            // by default X will play first. this value will toggle.
-            xIsNext: true
-        };
-    }
-
-    handleClick(i) {
-      // use slice() to copy the array without modifying original array
-        const squares = this.state.squares.slice();
-        // if game has been won, return nothing when square clicked
-        if (calculateWinner(squares) || squares[i]) {
-          return;
-        }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-          squares: squares,
-        // toggle the state of xIsNext
-        xIsNext: !this.state.xIsNext,
-        });
-    }
-
     renderSquare(i) {
       return (
         <Square 
-            value={this.state.squares[i]} 
-            onClick={() => this.handleClick(i)}
+            value={this.props.squares[i]} 
+            onClick={() => this.props.onClick(i)}
         />
       );
     }
   
     render() {
-      const winner = calculateWinner(this.state.squares);
-      let status;
-      if (winner) {
-        status = 'Winner: ' + winner;
-      } else {
-        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-      }
-
       return (
         <div>
-          <div className="status">{status}</div>
           <div className="board-row">
             {this.renderSquare(0)}
             {this.renderSquare(1)}
@@ -91,20 +58,89 @@ function Square(props) {
   }
   
   class Game extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        history: [{
+          squares: Array(9).fill(null)
+        }],
+        stepNumber: 0,
+        xIsNext: true
+      }
+    }
+
+    handleClick(i) {
+      const history = this.state.history.slice(0, this.state.stepNumber + 1);
+      const current = history[history.length - 1];
+      const squares = current.squares.slice();
+      if (calculateWinner(squares) || squares[i]) {
+        return;
+      }
+      squares[i] = this.state.xIsNext ? 'X' : 'O';
+      this.setState({
+        // .push would mutate orig array, so .concat is used here
+        history: history.concat([{
+          squares: squares
+        }]),
+        stepNumber: history.length,
+        xIsNext: !this.state.xIsNext,
+      });
+    }
+
+    jumpTo(step) {
+      this.setState({
+        stepNumber: step,
+        xIsNext: (step % 2) === 0,
+      })
+    }
+
     render() {
+      const history = this.state.history;
+      const current = history[this.state.stepNumber];
+      const winner = calculateWinner(current.squares);
+
+      const moves = history.map((step, move) => {
+        const desc = move ?
+          'Go to move #' + move :
+          'Go to game start';
+        return (
+          // lists in React need a key 
+          <li key={move}>
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
+        );
+      });
+
+      let status;
+      if (winner) {
+        status = 'Winner: ' + winner;
+      } else {
+        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      }
       return (
         <div className="game">
           <div className="game-board">
-            <Board />
+          <Board
+            squares={current.squares}
+            onClick={(i) => this.handleClick(i)}
+          />
           </div>
           <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
+          <div>{status}</div>
+            <ol>{moves}</ol>
           </div>
         </div>
       );
     }
   }
+
+  
+  // ========================================
+  
+  ReactDOM.render(
+    <Game />,
+    document.getElementById('root')
+  );
 
   // provided helper function to calculate if game has been won
   function calculateWinner(squares) {
@@ -127,10 +163,4 @@ function Square(props) {
     return null;
   }
   
-  // ========================================
-  
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-  );
   
