@@ -44,7 +44,7 @@ app.post('/todos', (req, res) => {
     }
     // add new todo item to our toDoArray & send client the new todo item
     toDoArray.push(newTodo);
-    res.json(newTodo);
+    res.status(201).json(newTodo);
 })
 
 // UPDATE - PUT - change state of task value for "isComplete" between true and false
@@ -77,4 +77,8 @@ app.delete('/todos/:id', (req, res) => {
 })
 
 const port = process.env.PORT || 3001;
+
+// for testing via 'testGetTodos.js' only
+module.exports = app;
+
 app.listen(port, ()=> console.log(`listening on port ${port}.`))
