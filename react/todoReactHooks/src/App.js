@@ -1,39 +1,27 @@
-// need to debug PUT styling
-// need to debug DELETE so it req to server
-
-// useState is a hook (a function that is programmed to "hook" into React)
+// need to debug DELETE to send req to server
+// useState/useEffect are hooks (a function that is programmed to "hook" into React)
 import {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
   // initial state is created so we have something to display
-
   // In the final version, this app would receive data from the backend API
   // and load it into the state.
-
   // it is a POJO (plain old javascript object)
   const initialState = {
     todos: [],
     newTodo: ""
   }
 
-  // useState returns an array whose first element
-  // is a true copy of the state object.
-
-  // the second element in the array returned is a function
-  // that is the sole updater of the state.
-
-  // any number of such state objects are allowed.
-
+  // useState returns an array whose first element is a true copy of the state object.
+  // the second element in the array returned is a function updates of the state.
   const [state, setState] = useState(initialState) 
   // const[counter,setCounter] = useState(1);
 
-  // api url 
+  // api url (server must be running for 'todosWithServerRedo')
   let url = 'http://localhost:3001/todos';
 
   // READ 
-  // call the api
-  // useEffect 
   useEffect(() => {
     fetch(url, {method: 'GET'})
     // parse response from api into json
@@ -56,17 +44,30 @@ function App() {
   }, [url])
 
   // UPDATE - toggle completion status
+    // // Functional method of setState. However, page is rendering before setState's state change is made.
+    // const onclickMarkTodoComplete = id => {
+    //   // the route specified for PUT on the todosWithServer server file ("todos/:id")
+    //   fetch(`${url}/${id}`, {method: 'PUT'})
+    //     .then(() => {
+    //       setState(s => {
+    //         let this_t = s.todos.find(t => t.id === id)
+    //         this_t.isComplete = !this_t.isComplete;
+    //         return s;
+    //       })
+    //     })
+    // }
+
+  // UPDATE non-functional setState method:
   const onclickMarkTodoComplete = id => {
-    // the route specified for PUT on the todosWithServer server file ("todos/:id")
     fetch(`${url}/${id}`, {method: 'PUT'})
       .then(() => {
-        setState(s => {
-          let this_t = s.todos.find(t => t.id === id)
-          this_t.isComplete = !this_t.isComplete;
-          return s;
-        })
+        let s = {...state}
+        let t = s.todos.find(element => element.id === id)
+        t.isComplete = !t.isComplete
+        setState(s)
       })
-    }
+      .catch(err => console.log(err))
+  }
 
   // CREATE
   const onAddTodo = event => {
@@ -110,7 +111,6 @@ function App() {
   // DELETE
   const removeTodo = event => {
     event.stopPropagation();
-
     let newState = {
       ...state,
       todos: state.todos.filter(t => {
@@ -124,7 +124,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Todomatic123</h1>
+        <h1>Todomatic</h1>
         
         <form onSubmit={onAddTodo}>
           <input 
