@@ -19,7 +19,7 @@ function App() {
   // const[counter,setCounter] = useState(1);
 
   // api url (server must be running for 'todosWithServerRedo')
-  let url = 'http://localhost:3001/todos';
+  let url = 'http://acctodos.herokuapp.com/todos';
 
   // READ 
   useEffect(() => {
