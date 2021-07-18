@@ -1,0 +1,9 @@
+<%- include("partials/header")  %>
+
+<h1>Edit Post</h1>
+<!-- overwrite POST with PUT via method-override module -->
+<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+    <%- include("partials/form_inputs")  %>
+</form>
+
+<%- include("partials/footer")  %>
