@@ -22,6 +22,7 @@ function App() {
   let url = 'http://acctodos.herokuapp.com/todos';
 
   // READ 
+  // useEffect for fetching API, other side effects
   useEffect(() => {
     fetch(url, {method: 'GET'})
     // parse response from api into json
@@ -92,6 +93,7 @@ function App() {
       return {
         ...s,
         todos: [...s.todos, data],
+        // reset newTodo to empty
         newTodo: ""
       }
     })
@@ -109,6 +111,10 @@ function App() {
   }
 
   // DELETE
+  // need to delete on server (fetch; method=delete):
+      // find indexOf this todo to delete
+      // remove todo via its index in the todo array
+      // then setState with updated todo array
   const removeTodo = event => {
     event.stopPropagation();
     let newState = {
