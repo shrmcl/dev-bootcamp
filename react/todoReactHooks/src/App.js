@@ -111,12 +111,10 @@ function App() {
   }
 
   // DELETE
-  // need to delete on server (fetch; method=delete):
-      // find indexOf this todo to delete
-      // remove todo via its index in the todo array
-      // then setState with updated todo array
   const removeTodo = event => {
     event.stopPropagation();
+    
+    // update the state for React to render to browser:
     let newState = {
       ...state,
       todos: state.todos.filter(t => {
@@ -124,6 +122,13 @@ function App() {
       })
     }
     setState(newState)
+
+    // fetch item from database to delete in database:
+    const thisTodo = event.target.id
+    
+    fetch(`${url}/${thisTodo}`, {method: 'DELETE'})
+      .catch(err => console.log(err))
+
   }
 
   // RENDER
