@@ -21,8 +21,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 // first arg adds "/posts" to start of each route
 // second arg tells app to use routes in posts.js via postRoutes const above
-app.use("/posts", postRoutes);
+
 app.use(methodOverride("_method"))
+app.use("/posts", postRoutes);
 
 app.get("/", (req, res) => {
     // res.send('connected')
