@@ -113,20 +113,22 @@ function App() {
   // DELETE
   const removeTodo = event => {
     event.stopPropagation();
-    
-    // update the state for React to render to browser:
+
+    // fetch item from database to delete in database:
+    const thisTodo = event.target.id
+
     let newState = {
       ...state,
       todos: state.todos.filter(t => {
         return t.id !== parseInt(event.target.id)
       })
     }
-    setState(newState)
 
-    // fetch item from database to delete in database:
-    const thisTodo = event.target.id
-    
     fetch(`${url}/${thisTodo}`, {method: 'DELETE'})
+      .then(
+        // update the state for React to render to browser *after* todo is deleted successfully from db
+        setState(newState)
+      )
       .catch(err => console.log(err))
 
   }
