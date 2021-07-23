@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<div class="container py-5">
+
+<h1 class="py-3 fs-1 fw-bold text-success">Is this info correct?  👀</h1>
+
+<p>First name: <%= data.first %></p>
+<p>Last name: <%= data.last %></p>
+<p>email: <%= data.email %></p>
+<p>phone: <%= data.phone %></p>
+<p>Country: <%= data.country %></p>
+<p>Age over 18?: <%= data.age %></p>
+<p>File uploaded: <%= data.file || 'no file uploaded' %></p>
+<a href="/"><button class="btn btn-warning px-5">Nope</button></a>
+<a href="/success"><button class="btn btn-success px-5">All good.</button></a>
+
+
+
+</div>
+
+<%- include('partials/footer') %>
