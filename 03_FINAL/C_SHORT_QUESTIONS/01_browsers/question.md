@@ -9,3 +9,8 @@ Case 1:
 
 Case 2:
     `<img src="dog.jpg" style="display:none" alt="my dog">`
+
+
+    
+
+Answer: Yes for both Case 1 and Case 2
