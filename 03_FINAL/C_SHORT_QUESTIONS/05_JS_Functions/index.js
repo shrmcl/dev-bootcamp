@@ -1,12 +1,15 @@
 let first = "This is a string";
 let second = "There was string"
 
-// capture value of longest string
-let chars = first.length >= second.length ? first.length : second.length;
-
 let compareStrings = (x,y) => {
+  // check that both args are strings
+  if (typeof x != 'string' || typeof y != 'string') {
+    return "do not use data types other than strings!"
+  }
+  // capture value of longest string
+  let chars = x.length >= y.length ? x.length : y.length;
   let count = 0;
-  // iterate through longest word (or if equal length, the 'x' length)
+  // iterate through longest word (or if equal lengths, the x argument)
   for (let i = 0; i <= chars; i++) {
     if (x[i] !== y[i]) {
       count++;
