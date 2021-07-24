@@ -16,3 +16,16 @@ body {
   height: auto;
   margin-top: 50px;
 }
+
+h1 {
+  color: rgb(150, 150, 150);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: rgb(95, 95, 95);
+}
