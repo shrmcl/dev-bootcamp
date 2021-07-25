@@ -9,6 +9,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 #gallery img {
@@ -28,4 +29,28 @@ a {
 
 a:hover {
   color: rgb(95, 95, 95);
+}
+
+input {
+  padding: 10px;
+  width: 70%;
+  height: 50px;
+  border: 1px solid black;
+}
+
+input:hover {
+  background-color: rgb(255, 255, 115);
+}
+
+button {
+  margin-top: 10px;
+  margin-left: 1%;
+  height: 50px;
+  border-radius: 4px;
+  width: 28%;
+  background-color: rgb(255, 0, 242);
+  border: 0px solid white;
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
 }
