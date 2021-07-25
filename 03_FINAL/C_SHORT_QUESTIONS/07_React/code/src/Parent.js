@@ -5,14 +5,21 @@ class Parent extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = {name: ''}
+    this.state = {stuff: ''}
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange(event) {
+    console.log('test');
+    this.setState({stuff: event.target.value})
+  }
+                                
   render(){
     return (
       <div>
-        <h1>Hello {this.state.name}</h1>
-        <Child />
+        <h1>Hello {this.state.stuff}</h1>
+        <Child searcher={this.handleChange}/>
       </div>
     )
   }

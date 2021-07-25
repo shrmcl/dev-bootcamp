@@ -29,7 +29,6 @@ values of each of the keys
     - egg, 
     - hello // non existent
 
-
 ## Question B:
 
 In the above database, how would you count the number of mongo documents which contain a type "cat".
@@ -37,3 +36,14 @@ In the above database, how would you count the number of mongo documents which c
 
 Note: these questions may seem challenging, but are quite easy to research on the documentation and try a few
 examples you may see online till you get an expected response. Git it a "Play". 
+
+-----------------------------
+
+ANSWER A: 
+db.animals.distinct("type")
+db.animals.distinct('egg')
+db.animals.distinct('hello')
+
+
+ANSWER B:
+db.animals.find({type:"cat"}).count()

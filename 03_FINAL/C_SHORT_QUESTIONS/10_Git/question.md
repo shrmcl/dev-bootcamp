@@ -27,3 +27,15 @@ If you successfully created a pull request, this task is successfully completed.
 
 How do you delete a local branch after completing work on it.  How would you delete a remote branch?
 
+
+ANSWER A:
+To undo the last committed change I viewed the commit history on GitHub and found that the last commit changed "await sleep(400);" to "await sleep(800);" in the file "src/lib/fetch.js". I changed the value back to 400.
+
+ANSWER B: 
+
+LOCAL:
+git branch -d (branch name)
+
+REMOTE:
+git push origin --delete (branch name)
+
