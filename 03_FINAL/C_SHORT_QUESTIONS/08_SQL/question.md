@@ -38,8 +38,12 @@ The output may look something like this. Some intermediate rows have been remove
        2 | Giants | San Francisco | CA    | Jean Machi        |    255 | Heavy
 ```
 
-ANSWER:
 
+ANSWER (screenshot):
+<img src="sql_query.png">
+
+
+ANSWER (text):
 SELECT t.id, t.name, 
        p.weight, p.team_id
 FROM teams t INNER JOIN players p
