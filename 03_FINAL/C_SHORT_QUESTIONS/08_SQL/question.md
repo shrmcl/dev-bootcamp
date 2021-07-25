@@ -38,4 +38,16 @@ The output may look something like this. Some intermediate rows have been remove
        2 | Giants | San Francisco | CA    | Jean Machi        |    255 | Heavy
 ```
 
+ANSWER:
 
+SELECT t.id, t.name, 
+       p.weight, p.team_id
+FROM teams t INNER JOIN players p
+ON t.id = p.team_id,
+COALESCE(team_id, 4)
+       FROM players
+        WHERE team_id IS NULL,
+CASE
+       WHEN weight  >  200 THEN INSERT into weight “HEAVY”
+       ELSE INSERT into weight “MEDIUM”,
+ORDER BY weight ASC;
