@@ -6,7 +6,6 @@ class Parent extends React.Component {
   constructor(props){
     super(props)
     this.state = {stuff: ''}
-
     this.handleChange = this.handleChange.bind(this);
   }
 
