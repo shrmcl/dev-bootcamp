@@ -30,10 +30,12 @@
             </div>
         </div>
         <div class="chat__new-message">
-            <input id="message" type="text" placeholder="New Message" class="chat__input-message">
+            <input id="messageInput" type="text" placeholder="New Message" class="chat__input-message">
             <button class="chat__submit"><i class="far fa-paper-plane"></i></button>
         </div>
     </main>
+    <!-- via the index.js socket library: -->
+    <script src="./socket.io/socket.io.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
