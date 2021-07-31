@@ -20,4 +20,8 @@ io.on('connection', (socket) => {
     console.log('new user added: ', nick)
     io.emit('New User', nick)
   })
+  socket.on('New Message', (msgObject) => {
+    console.log('new message added: ', msgObject)
+    io.emit('New Message', msgObject)
+  })
 })

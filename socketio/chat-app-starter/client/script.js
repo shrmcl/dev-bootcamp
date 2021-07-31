@@ -35,6 +35,19 @@ socket.on('New User', (nick) => {
   console.log('new user joined: ', nick)
 })
 
+chatSubmit.addEventListener('click', () => {
+  let msgObject = {
+    nickname: sessionStorage.getItem('nickname'),
+    message: message.value
+  }
+  socket.emit('New Message', msgObject)
+  message.value = ''
+})
+
+socket.on('New Message', (msgObject) => {
+  console.log('new message received: ', msgObject)
+})
+
 // ------------------------------------
 // Functions to create new messages:  |
 // ------------------------------------
