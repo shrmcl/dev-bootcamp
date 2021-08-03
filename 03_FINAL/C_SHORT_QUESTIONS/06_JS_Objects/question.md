@@ -28,3 +28,5 @@ Why does this comparison return false?  Please explain.
     console.log(school_a == school_b);   // returns false, why?
 
 ANSWER: school_a and school_b are 2 distinct objects with separate references ('addresses' as a metaphor).Despite containing equivalent data, they point to different references.
+
+<!-- Correct! 100% -->

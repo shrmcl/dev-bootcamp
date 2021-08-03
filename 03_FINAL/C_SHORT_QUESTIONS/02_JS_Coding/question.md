@@ -23,3 +23,5 @@ ANSWER:
 The "const pi" needs to be declared before being referred to in "var boundary = Math.pow(radius, 2) * pi".
 
 Changing "const pi" to "var pi" would not help unless it is moved and declared before "var boundary = Math.pow(radius, 2) * pi".
+
+<!-- Correct! 100% -->

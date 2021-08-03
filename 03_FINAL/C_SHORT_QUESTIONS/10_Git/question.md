@@ -31,6 +31,8 @@ How do you delete a local branch after completing work on it.  How would you del
 ANSWER A:
 To undo the last committed change I viewed the commit history on GitHub and found that the last commit changed "await sleep(400);" to "await sleep(800);" in the file "src/lib/fetch.js". I changed the value back to 400.
 
+<!-- The question was not looking for you to edit the file directly. But I do see your comment on github mentioning revert. Did you use git at all to make this change? Let me know and I'll update your grade to 100% for this. 90% -->
+
 ANSWER B: 
 
 LOCAL:

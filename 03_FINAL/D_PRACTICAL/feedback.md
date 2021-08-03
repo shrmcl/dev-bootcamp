@@ -1,0 +1,1 @@
+The website looks awesome! Great job Shar. You met all requirements for the app. The ONLY thing you are missing is the comments and we have that factored into the grade. Overall you did great on this final as well. It shows that you really learned what has been taught in the bootcamp and put it to good use. Awesome work keep it up!

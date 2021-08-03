@@ -10,3 +10,5 @@ It should work like this when done:
 <img src="assets/React-State-Demo.gif" width="400px">
 
 Please use short comments to show why your solution works.
+
+<!-- Good work Shar. Just missing the comments! 80% -->

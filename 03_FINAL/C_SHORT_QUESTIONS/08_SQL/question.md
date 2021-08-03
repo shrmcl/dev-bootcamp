@@ -55,3 +55,7 @@ CASE
        WHEN weight  >  200 THEN INSERT into weight “HEAVY”
        ELSE INSERT into weight “MEDIUM”,
 ORDER BY weight ASC;
+
+
+# You are on the right track. The ideas are there you just need to fix syntax issues
+# 25%

@@ -15,3 +15,5 @@ Please do not look for solved problems on the web. They are too complicated and 
 Give it a try.
 
 ANSWER: view 'index.js' for answer.
+
+<!-- Correct! 100% -->

@@ -47,3 +47,5 @@ db.animals.distinct('hello')
 
 ANSWER B:
 db.animals.find({type:"cat"}).count()
+
+<!-- Correct! 100% -->
